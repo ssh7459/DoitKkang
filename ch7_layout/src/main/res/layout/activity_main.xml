@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:src="@drawable/add_sharp"
+            android:src="@drawable/add"
             app:tint="#00FF00" />
 
         <TextView
@@ -185,7 +185,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginRight="30dp"
-            android:src="@drawable/videocam_sharp" />
+            android:src="@drawable/video" />
 
         <ImageView
             android:id="@+id/icon_call"
@@ -200,7 +200,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="30dp"
             android:layout_toRightOf="@id/icon_call"
-            android:src="@drawable/backspace_sharp" />
+            android:src="@drawable/back" />
 
     </RelativeLayout>
 
