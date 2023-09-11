@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = MyAdapter(datas)
-        binding.recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        binding.recyclerView.addItemDecoration(MyDecoration(this))
     }
 }
 
@@ -42,8 +42,11 @@ class MyAdapter(val datas: MutableList<String>): RecyclerView.Adapter<RecyclerVi
         return MyViewHolder(ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
+    override fun getItemCount(): Int {
+        return datas.size
+    }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        Log.d(TAG, "onBindViewHolder: $position")
         val binding = (holder as MyViewHolder).binding
         // 뷰에 데이터 출력
         binding.itemData.text = datas[position]
@@ -51,9 +54,5 @@ class MyAdapter(val datas: MutableList<String>): RecyclerView.Adapter<RecyclerVi
         binding.itemRoot.setOnClickListener {
             Log.d(TAG, "item root click: $position")
         }
-    }
-
-    override fun getItemCount(): Int {
-        return datas.size
     }
 }
