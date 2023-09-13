@@ -19,11 +19,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val requestLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()) {
+            ActivityResultContracts.StartActivityForResult()
+        ) {
             it.data!!.getStringExtra("result")?.let {
                 datas?.add(it)
                 adapter.notifyDataSetChanged()
@@ -42,9 +43,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val layoutManager = LinearLayoutManager(this)
-        binding.mainRecyclerView.layoutManager=layoutManager
-        adapter=MyAdapter(datas)
-        binding.mainRecyclerView.adapter=adapter
+        binding.mainRecyclerView.layoutManager = layoutManager
+        adapter = MyAdapter(datas)
+        binding.mainRecyclerView.adapter = adapter
         binding.mainRecyclerView.addItemDecoration(
             DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         )
